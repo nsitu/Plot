@@ -17,10 +17,7 @@ const app = Vue.createApp({
          * i.e. which crops the farmer already owns */
         hello(){  
             axios.get('/plot', {params: {farmer: this.myNameIs}} )
-                .then(response => {
-                    console.log(response.data)
-                    this.plot = response.data
-                })
+                .then(response =>  this.plot = response.data )
                 .catch(error =>  this.showNotice("Error." ))
         },
         /**  process the search form by sending the query to NodeJS */
@@ -65,8 +62,8 @@ const app = Vue.createApp({
             this.notice = text;
             setTimeout(() => this.notice = false, 2000);
         },
-        /** reveal the farmer's plot (current list of owned crops) */
-        showPlot(){
+        /** Hide the search to reveal the farmer's plot (current list of owned crops) */
+        clearSearch(){
             this.searchFilter = null;
             this.results = null;
             this.notice = null;

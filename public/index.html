@@ -18,7 +18,7 @@
   <!-- Base 64 inline favicon generated at https://png-pixel.com/ -->
   <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNMPvnxPwAG0gMeEo1rnwAAAABJRU5ErkJggg==">
 
-  
+  <!-- Our VueJS app -->
   <script defer src="script.js"></script>
 
 </head>
@@ -45,7 +45,7 @@
       <button>🔎</button>
     </form>
     <!-- Display the farmer's plot  -->
-    <button id="plotButton" @click="showPlot()">{{plot.farmer}}'s plot</button>
+    <button id="plotButton" @click="clearSearch()">{{plot.farmer}}'s plot</button>
   </nav>
 
  <!-- A place to display notices and errors. -->
@@ -54,14 +54,19 @@
 </section>
 
   <!-- If there are any search results, they will appear here -->
-  <section v-if="results" id="results">
-    <div v-for="crop in results" class="result" > 
-      <div class="circle">
-        <img :src="crop.attributes.main_image_path" @error="skip(crop)">
-      </div> 
-      <h3>{{ crop.attributes.name }}</h3>
-      <button class="remove" v-if="isOwned(crop)" @click="remove(crop)"> ❌ </button>
-      <button class="add" v-if="!isOwned(crop)" @click="add(crop)"> ➕ </button>  
+  <section v-if="results" id="resultsArea">
+    <div id="results">
+      <div v-for="crop in results" class="result" > 
+        <div class="circle">
+          <img :src="crop.attributes.main_image_path" @error="skip(crop)">
+        </div> 
+        <h3>{{ crop.attributes.name }}</h3>
+        <button class="remove" v-if="isOwned(crop)" @click="remove(crop)"> ❌ </button>
+        <button class="add" v-if="!isOwned(crop)" @click="add(crop)"> ➕ </button>  
+      </div>
+    </div>
+    <div id="close">
+      <button @click="clearSearch()">Close</button>
     </div>
   </section>
 

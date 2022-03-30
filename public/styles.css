@@ -98,6 +98,17 @@ button{
     padding: 2rem;
 
 }
+
+ #close{
+    text-align: center;
+}
+#close button{
+    background: #9ddcf58f;
+    border: none;
+    padding: 1rem;
+    
+}
+
 .circle{
     width: 5rem;
     height: 5rem;
