@@ -48,6 +48,10 @@
     <button id="plotButton" @click="showPlot()">{{plot.farmer}}'s plot</button>
   </nav>
 
+ <!-- A place to display notices and errors. -->
+ <section v-if="notice" id="notice">
+  <div> {{ notice }}</div>
+</section>
 
   <!-- If there are any search results, they will appear here -->
   <section v-if="results" id="results">
@@ -72,16 +76,13 @@
     </div> 
   </section> 
 
+  <!-- If the user entered their name but doesnt have plants yet
+  Show an inspiring message.-->
   <div id="emptyPlot" v-if="plot.farmer && !plot.crops.length">
-    <p>It's a great day to plant something new!</p>
+    <p>It's a great day to plant something new! 🌽</p>
   </div>
  
   <footer>
-      <!-- A place to display notices and errors. -->
-    <section v-if="notice" id="notice">
-      <div> {{ notice }}</div>
-    </section>
-
     <div id="credits">Made by <a href="https://nsitu.ca">Harold</a>. Thanks to <a href="https://github.com/openfarmcc/OpenFarm">OpenFarm API</a> for the plant data. Plots persisted with <a href="https://www.mongodb.com/">MongoDB</a>. Backend written with <a href="https://nodejs.org/">NodeJS</a> and <a href="https://expressjs.com/">Express</a>. Frontend written with <a href="https://vuejs.org/">VueJS</a>. Hosted by Heroku. </div>
   </footer>
 
