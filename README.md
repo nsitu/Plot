@@ -6,4 +6,4 @@ Made by [Harold](https://nsitu.ca). Thanks to [OpenFarm API](https://github.com/
 
 
 # Environment Variables  
-You should add your MongoDB connection string as an environent variable. For example, it might look something like this: `MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net`. (Replace "username" and "password" in the connection string with your actual username and password).  
+You should add your MongoDB connection string as an environent variable. For example, it might look something like this: `MONGODB_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net`. If you're using MongoDB Atlas, you can find your conneciton string in the Dashboard. Click the `Connect` button next to your Cluster, and then choose `Connect your application`.
