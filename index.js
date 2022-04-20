@@ -24,6 +24,7 @@ const cors = require ('cors')         // Cross Origin Resource Sharing
 const bodyParser = require('body-parser') // middleware to parse JSON data that is sent from the frontend.
 const app = express(); // enable express
 app.use( cors() ); // make express attach CORS headers to responses
+// TODO: adjust settings for JSON 
 app.use( express.json() ); // add json capabilities to our express app 
 
 /* Serve up static assets, i.e. the Frontend of the site. */
